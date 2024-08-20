@@ -12,6 +12,23 @@
   --red-dark: #e03131;
   --black: #183153;
   --white-dark: #f0f1f3;
+  --two-px: clamp(2px, 0.17vw, 0.17vw);
+  --five-px: clamp(5px, 0.4vw, 0.4vw);
+  --eight-px: clamp(0.5rem, 0.65vw, 0.65vw);
+  --fourteen-px: clamp(14px, 1.13vw, 1.13vw);
+  --eighteen-px: clamp(18px, 1.45vw, 1.45vw);
+  --one-rem: clamp(1rem, 1.3vw, 1.3vw);
+  --one-twenty-five-rem: clamp(1.25rem, 1.6vw, 1.6vw);
+  --one-five-rem: clamp(1.5rem, 1.94vw, 1.94vw);
+  --two-rem: clamp(2rem, 2.6vw, 2.6vw);
+  --two-five-rem: clamp(2.5rem, 3.221vw, 3.221vw);
+  --three-rem: clamp(3rem, 3.9vw, 3.9vw);
+  --five-rem: clamp(5rem, 6.45vw, 6.45vw);
+  --six-rem: clamp(6rem, 7.73vw, 7.73vw);
+  --ten-rem: clamp(10rem, 12.9vw, 12.9vw);
+  --fifteen-rem: clamp(15rem, 19.33vw, 19.33vw);
+  --twenty-rem: clamp(20rem, 25.76vw, 25.76vw);
+  --twenty-two-rem: clamp(22rem, 28.35vw, 28.35vw);
 }
 html {
   scroll-behavior: smooth;
@@ -26,12 +43,25 @@ html {
 body {
   scroll-snap-type: y mandatory;
 }
-p {
-  line-height: 1.5rem;
-  color: var(--black);
+h1 {
+  font-size: var(--three-rem);
 }
-section h1 {
-  font-size: 2rem;
+h2 {
+  font-size: var(--two-rem);
+}
+h4 {
+  font-size: var(--one-rem);
+}
+p {
+  line-height: var(--one-five-rem);
+  color: var(--black);
+  font-size: var(--one-rem);
+}
+section:not(#gallery, #about, #contact),
+.first,
+.second,
+footer {
+  padding: var(--six-rem) var(--five-rem);
 }
 
 /* Animatons */
@@ -52,52 +82,55 @@ section h1 {
 
 /* Toggle JS */
 .scrolled {
-  background-color: var(--blue);
-  color: white;
-  margin: clamp(0.5rem, 3vw, 1rem) clamp(1rem, 3vw, 2rem);
-  width: 94%;
-  border-radius: 100px;
-  -webkit-border-radius: 100px;
-  -moz-border-radius: 100px;
-  -ms-border-radius: 100px;
-  -o-border-radius: 100px;
-
-  & a {
+  & main {
+    background-color: var(--blue);
     color: white;
+    margin: var(--one-rem) var(--two-rem);
+    border-radius: 100px;
+    -webkit-border-radius: 100px;
+    -moz-border-radius: 100px;
+    -ms-border-radius: 100px;
+    -o-border-radius: 100px;
 
-    &:hover {
-      color: var(--blue-dark);
+    & a {
+      color: white;
+
+      &:hover {
+        color: var(--blue-dark);
+      }
     }
-  }
 
-  @media only screen and (max-width: 884px) {
-    & nav {
-      background-color: var(--blue);
+    @media only screen and (max-width: 884px) {
+      & nav {
+        background-color: var(--blue);
+      }
     }
   }
 }
 .scrolled-more {
-  background-color: var(--green);
-  color: white;
-  margin: clamp(0.5rem, 3vw, 1rem) clamp(1rem, 3vw, 2rem);
-  width: 94%;
-  border-radius: 100px;
-  -webkit-border-radius: 100px;
-  -moz-border-radius: 100px;
-  -ms-border-radius: 100px;
-  -o-border-radius: 100px;
-
-  & a {
+  & main {
+    background-color: var(--green);
     color: white;
+    margin: var(--one-rem) var(--two-rem);
 
-    &:hover {
-      color: var(--green-dark);
+    border-radius: 100px;
+    -webkit-border-radius: 100px;
+    -moz-border-radius: 100px;
+    -ms-border-radius: 100px;
+    -o-border-radius: 100px;
+
+    & a {
+      color: white;
+
+      &:hover {
+        color: var(--green-dark);
+      }
     }
-  }
 
-  @media only screen and (max-width: 884px) {
-    & nav {
-      background-color: var(--green);
+    @media only screen and (max-width: 884px) {
+      & nav {
+        background-color: var(--green);
+      }
     }
   }
 }
@@ -105,101 +138,109 @@ section h1 {
 /* Styling */
 header {
   z-index: 999;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
   position: fixed;
   top: 0;
   color: white;
-  padding: clamp(0.5rem, 3vw, 1rem) clamp(1rem, 3vw, 2rem);
   width: 100%;
-  transition: 500ms;
-  -webkit-transition: 500ms;
-  -moz-transition: 500ms;
-  -ms-transition: 500ms;
-  -o-transition: 500ms;
 
-  & label {
-    display: none;
-  }
-
-  & input {
-    display: none;
-  }
-
-  & nav {
+  & main {
     display: flex;
-    gap: 1em;
-    background-color: transparent;
-    list-style-type: none;
-    font-weight: 500;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--one-rem) var(--two-rem);
     transition: 500ms;
     -webkit-transition: 500ms;
     -moz-transition: 500ms;
     -ms-transition: 500ms;
     -o-transition: 500ms;
-
-    & li {
-      padding: 0.5em 1em;
-      border-radius: 1em;
-      -webkit-border-radius: 1em;
-      -moz-border-radius: 1em;
-      -ms-border-radius: 1em;
-      -o-border-radius: 1em;
-
-      & a {
-        color: white;
-        text-decoration: none;
-      }
-
-      &:hover a {
-        color: var(--blue);
-      }
+    & h4 {
+      font-size: var(--one-rem);
     }
-  }
 
-  @media only screen and (max-width: 884px) {
-    & nav {
+    & label {
       display: none;
     }
 
-    & input:checked ~ nav {
+    & input {
+      display: none;
+    }
+
+    & nav {
       display: flex;
-      flex-direction: column;
-      position: absolute;
-      top: 4rem;
-      right: 1.2rem;
-      padding: 0.5rem;
-      border-radius: 1rem;
-      -webkit-border-radius: 1rem;
-      -moz-border-radius: 1rem;
-      -ms-border-radius: 1rem;
-      -o-border-radius: 1rem;
+      gap: var(--one-rem);
+      background-color: transparent;
+      list-style-type: none;
+      font-weight: 500;
       transition: 500ms;
       -webkit-transition: 500ms;
       -moz-transition: 500ms;
       -ms-transition: 500ms;
       -o-transition: 500ms;
-    }
-    & input:checked ~ label {
-      background-color: rgb(0, 0, 0, 0.2);
-    }
-    & label {
-      display: grid;
-      place-content: center;
-      padding: 0.2rem;
-      border-radius: 0.3rem;
-      -webkit-border-radius: 0.3rem;
-      -moz-border-radius: 0.3rem;
-      -ms-border-radius: 0.3rem;
-      -o-border-radius: 0.3rem;
 
-      &:hover {
+      & li {
+        padding: var(--eight-px) var(--one-rem);
+        border-radius: var(--one-rem);
+        -webkit-border-radius: var(--one-rem);
+        -moz-border-radius: var(--one-rem);
+        -ms-border-radius: var(--one-rem);
+        -o-border-radius: var(--one-rem);
+
+        & a {
+          color: white;
+          text-decoration: none;
+          font-size: var(--one-rem);
+        }
+
+        &:hover a {
+          color: var(--blue);
+        }
+      }
+    }
+    @media only screen and (max-width: 920px) {
+      & nav {
+        display: none;
+      }
+
+      & input:checked ~ nav {
+        display: flex;
+        flex-direction: column;
+        background-color: var(--blue);
+        position: absolute;
+        top: 5rem;
+        right: 2rem;
+        padding: var(--eight-px);
+        border-radius: var(--one-rem);
+        -webkit-border-radius: var(--one-rem);
+        -moz-border-radius: var(--one-rem);
+        -ms-border-radius: var(--one-rem);
+        -o-border-radius: var(--one-rem);
+        transition: 500ms;
+        -webkit-transition: 500ms;
+        -moz-transition: 500ms;
+        -ms-transition: 500ms;
+        -o-transition: 500ms;
+      }
+      & input:checked ~ label {
         background-color: rgb(0, 0, 0, 0.2);
+      }
+      & label {
+        display: grid;
+        place-content: center;
+        padding: var(--two-px);
+        border-radius: var(--five-px);
+        -webkit-border-radius: var(--five-px);
+        -moz-border-radius: var(--five-px);
+        -ms-border-radius: var(--five-px);
+        -o-border-radius: var(--five-px);
+
+        &:hover {
+          background-color: rgb(0, 0, 0, 0.2);
+        }
       }
     }
   }
 }
+
 #home {
   display: grid;
   place-content: center;
@@ -210,7 +251,7 @@ header {
   font-size: large;
 
   & .constellation {
-    height: 5rem;
+    height: var(--five-rem);
     position: absolute;
     bottom: 5rem;
     left: 15rem;
@@ -219,7 +260,7 @@ header {
   }
 
   & .venus {
-    height: 10rem;
+    height: var(--ten-rem);
     position: absolute;
     top: -3rem;
     right: -1rem;
@@ -229,11 +270,11 @@ header {
 
   & .stars {
     position: absolute;
-    width: 1225px;
+    width: max(100vw, 100vh);
     mask-image: linear-gradient(
       to bottom,
       var(--black) 50%,
-      transparent 80%,
+      transparent 70%,
       transparent
     );
     filter: hue-rotate(30deg) opacity(0.5);
@@ -241,7 +282,7 @@ header {
   }
 
   & .saturn {
-    height: 5rem;
+    height: var(--five-rem);
     position: absolute;
     top: 20%;
     left: 8%;
@@ -249,7 +290,7 @@ header {
     -webkit-filter: opacity(0.8);
   }
   & .falling-star {
-    height: 2.5rem;
+    height: var(--two-five-rem);
     position: absolute;
     right: 8%;
     top: 25%;
@@ -262,7 +303,7 @@ header {
     text-align: center;
 
     & img {
-      height: clamp(5em, 10em, 10vw);
+      height: var(--five-rem);
 
       &#flower-face {
         position: absolute;
@@ -281,31 +322,28 @@ header {
 
     & .text {
       display: grid;
-      gap: 2em;
+      gap: var(--two-rem);
 
-      & h1 {
-        font-size: clamp(2.7rem, 5vw, 3rem);
-      }
       & p {
         color: var(--white-dark);
-        font-size: clamp(1rem, 4vw, 1.25rem);
+        font-size: var(--one-twenty-five-rem);
       }
       & a {
         background-color: var(--green);
         color: var(--black);
         width: fit-content;
         margin: auto;
-        padding: 1em 2em;
+        padding: var(--one-rem) var(--two-rem);
         font-weight: 500;
         text-decoration: none;
-        font-size: clamp(12px, 3vw, 1rem);
-        box-shadow: 0 5px var(--green-dark);
-        border: 2px var(--green-dark) solid;
-        border-radius: 1rem;
-        -webkit-border-radius: 1rem;
-        -moz-border-radius: 1rem;
-        -ms-border-radius: 1rem;
-        -o-border-radius: 1rem;
+        font-size: var(--one-rem);
+        box-shadow: 0 var(--five-px) var(--green-dark);
+        border: var(--two-px) var(--green-dark) solid;
+        border-radius: var(--one-rem);
+        -webkit-border-radius: var(--one-rem);
+        -moz-border-radius: var(--one-rem);
+        -ms-border-radius: var(--one-rem);
+        -o-border-radius: var(--one-rem);
 
         &:hover {
           border-color: var(--black);
@@ -313,11 +351,11 @@ header {
 
         &:active {
           box-shadow: none;
-          transform: translateY(5px);
-          -webkit-transform: translateY(5px);
-          -moz-transform: translateY(5px);
-          -ms-transform: translateY(5px);
-          -o-transform: translateY(5px);
+          transform: translateY(var(--five-px));
+          -webkit-transform: translateY(var(--five-px));
+          -moz-transform: translateY(var(--five-px));
+          -ms-transform: translateY(var(--five-px));
+          -o-transform: translateY(var(--five-px));
         }
       }
     }
@@ -332,10 +370,8 @@ header {
 
   & .first {
     display: grid;
-    gap: 2rem;
+    gap: var(--two-rem);
     position: relative;
-    height: calc(fit-content - 3rem);
-    padding: 6rem 5rem;
     background: linear-gradient(
       to bottom,
       var(--black) 50%,
@@ -345,10 +381,10 @@ header {
     & .text {
       display: grid;
       place-content: center;
-      gap: 2rem;
+      gap: var(--two-rem);
       text-align: center;
 
-      & h1 {
+      & h2 {
         color: white;
       }
 
@@ -366,7 +402,7 @@ header {
         z-index: 888;
         position: absolute;
         left: 50%;
-        max-width: clamp(5rem, 20vw, 8rem);
+        max-width: var(--six-rem);
         transform: translateX(-50%);
         -webkit-transform: translateX(-50%);
         -moz-transform: translateX(-50%);
@@ -376,7 +412,7 @@ header {
 
       & img:nth-child(2) {
         max-width: 80vw;
-        box-shadow: #74c0fc 0 0 20rem;
+        box-shadow: #74c0fc 0 0 var(--twenty-rem);
         border-radius: 1000px;
         -webkit-border-radius: 1000px;
         -moz-border-radius: 1000px;
@@ -386,7 +422,7 @@ header {
         -webkit-animation: rotate 60s linear infinite;
       }
       & .satelite {
-        height: 3rem;
+        height: var(--three-rem);
         position: absolute;
         top: 0;
         left: -1rem;
@@ -400,13 +436,12 @@ header {
   }
   & .second {
     display: grid;
-    gap: 2em;
+    gap: var(--two-rem);
     background: linear-gradient(to bottom, var(--blue-dark), var(--blue));
     position: relative;
-    padding: 6rem 5em;
 
     & .plane {
-      height: 15rem;
+      height: var(--fifteen-rem);
       position: absolute;
       top: -5rem;
       left: 100%;
@@ -420,41 +455,44 @@ header {
     }
 
     & .clouds:nth-child(1) {
-      height: 15rem;
+      height: var(--fifteen-rem);
       position: absolute;
       top: -5rem;
       left: -2rem;
     }
 
     & .clouds:nth-child(2) {
-      height: 15rem;
+      height: var(--fifteen-rem);
       position: absolute;
       right: -5rem;
       bottom: -2rem;
     }
 
-    & h1 {
+    & h2 {
       color: white;
       z-index: 10;
     }
     & .cards {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(22rem, 1fr));
+      grid-template-columns: repeat(
+        auto-fit,
+        minmax(var(--twenty-two-rem), 1fr)
+      );
       place-content: center;
-      gap: 1em;
+      gap: var(--one-rem);
       z-index: 10;
 
       & .card {
         display: flex;
-        gap: 1em;
+        gap: var(--one-rem);
         background-color: white;
         color: var(--black);
-        padding: 1em;
-        border-radius: 1em;
-        -webkit-border-radius: 1em;
-        -moz-border-radius: 1em;
-        -ms-border-radius: 1em;
-        -o-border-radius: 1em;
+        padding: var(--one-rem);
+        border-radius: var(--one-rem);
+        -webkit-border-radius: var(--one-rem);
+        -moz-border-radius: var(--one-rem);
+        -ms-border-radius: var(--one-rem);
+        -o-border-radius: var(--one-rem);
         transition: 30ms;
         -webkit-transition: 30ms;
         -moz-transition: 30ms;
@@ -475,11 +513,11 @@ header {
         }
 
         & img {
-          height: 5rem;
+          height: var(--five-rem);
         }
         & .text {
           display: grid;
-          gap: 0.5em;
+          gap: var(--eight-px);
         }
       }
     }
@@ -488,68 +526,66 @@ header {
 #tips {
   background-color: var(--blue);
   position: relative;
-  padding: 6rem 5em;
 
   & .birds {
     position: absolute;
-    height: 4rem;
+    height: calc(var(--five-rem) - var(--one-rem));
     right: -20rem;
     top: 0rem;
   }
   & .cloud:nth-child(1) {
     position: absolute;
-    height: 15rem;
+    height: var(--fifteen-rem);
     left: -2rem;
     top: 8rem;
   }
   & .cloud:nth-child(2) {
     position: absolute;
-    height: 15rem;
+    height: var(--fifteen-rem);
     right: -2rem;
     bottom: -5rem;
   }
   & main {
     display: grid;
-    gap: 2rem;
+    gap: var(--two-rem);
 
-    & h1 ~ p {
+    & h2 ~ p {
       text-align: center;
       z-index: 10;
     }
-    & h1 {
-      font-size: 2rem;
+    & h2 {
       text-align: center;
       z-index: 10;
     }
     & .cards {
       display: grid;
       place-content: center;
-      grid-template-columns: repeat(auto-fit, 20rem);
-      gap: 2rem;
+      grid-template-columns: repeat(auto-fit, var(--twenty-rem));
+      gap: var(--two-rem);
       z-index: 10;
 
       & .card {
         display: flex;
-        gap: 1em;
-        max-width: 20rem;
-        border-radius: 1rem;
-        -webkit-border-radius: 1rem;
-        -moz-border-radius: 1rem;
-        -ms-border-radius: 1rem;
-        -o-border-radius: 1rem;
+        gap: var(--one-rem);
+
+        border-radius: var(--one-rem);
+        -webkit-border-radius: var(--one-rem);
+        -moz-border-radius: var(--one-rem);
+        -ms-border-radius: var(--one-rem);
+        -o-border-radius: var(--one-rem);
 
         & img {
-          height: 2rem;
+          height: var(--two-rem);
         }
         & .text {
           display: grid;
-          gap: 0.5rem;
+          gap: var(--eight-px);
 
           & h4 {
-            font-size: 18px;
+            font-size: var(--eighteen-px);
           }
           & p {
-            font-size: 14px;
+            font-size: var(--fourteen-px);
           }
         }
       }
@@ -559,25 +595,31 @@ header {
 #benefits {
   background: linear-gradient(to bottom, var(--blue) 80%, white 100%);
   position: relative;
-  padding: 6rem 5rem;
+
+  & .school {
+    position: absolute;
+    bottom: -1.2rem;
+    left: -6rem;
+    height: var(--twenty-rem);
+  }
 
   & .clouds:nth-child(1) {
     position: absolute;
-    height: 20rem;
+    height: var(--twenty-rem);
     right: -5rem;
     bottom: 2rem;
   }
   & .clouds:nth-child(2) {
     left: -7rem;
     position: absolute;
-    height: 20rem;
+    height: var(--twenty-rem);
     top: 0;
   }
   & main {
     display: grid;
-    gap: 2rem;
+    gap: var(--two-rem);
 
-    & h1 {
+    & h2 {
       z-index: 10;
     }
     & p {
@@ -587,81 +629,81 @@ header {
     & .cards {
       display: grid;
       place-content: center;
-      grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
-      gap: 2rem;
+      grid-template-columns: repeat(auto-fit, minmax(var(--ten-rem), 1fr));
+      gap: var(--two-rem);
       position: relative;
       z-index: 10;
 
       & .card {
         display: grid;
-        gap: 1rem;
-        padding: 1rem;
+        gap: var(--one-rem);
+        padding: var(--one-rem);
         text-align: center;
-        border-radius: 1rem;
-        -webkit-border-radius: 1rem;
-        -moz-border-radius: 1rem;
-        -ms-border-radius: 1rem;
-        -o-border-radius: 1rem;
+        border-radius: var(--one-rem);
+        -webkit-border-radius: var(--one-rem);
+        -moz-border-radius: var(--one-rem);
+        -ms-border-radius: var(--one-rem);
+        -o-border-radius: var(--one-rem);
 
         & img {
-          height: 3rem;
+          height: var(--three-rem);
           margin: auto;
         }
 
         &:nth-child(1) {
           background-color: var(--red);
-          box-shadow: 0 5px var(--red-dark);
+          box-shadow: 0 var(--five-px) var(--red-dark);
 
           &:hover {
-            border: 2px var(--red-dark) solid;
+            border: var(--two-px) var(--red-dark) solid;
             box-shadow: none;
-            transform: translateY(5px);
-            -webkit-transform: translateY(5px);
-            -moz-transform: translateY(5px);
-            -ms-transform: translateY(5px);
-            -o-transform: translateY(5px);
+            transform: translateY(var(--five-px));
+            -webkit-transform: translateY(var(--five-px) (--five-px));
+            -moz-transform: translateY(var(--five-px));
+            -ms-transform: translateY(var(--five-px));
+            -o-transform: translateY(var(--five-px));
           }
         }
         &:nth-child(2) {
           background-color: var(--yellow);
-          box-shadow: 0 5px var(--yellow-dark);
+          box-shadow: 0 var(--five-px) var(--yellow-dark);
 
           &:hover {
-            border: 2px var(--yellow-dark) solid;
+            border: var(--two-px) var(--yellow-dark) solid;
             box-shadow: none;
-            transform: translateY(5px);
-            -webkit-transform: translateY(5px);
-            -moz-transform: translateY(5px);
-            -ms-transform: translateY(5px);
-            -o-transform: translateY(5px);
+            transform: translateY(var(--five-px));
+            -webkit-transform: translateY(var(--five-px));
+            -moz-transform: translateY(var(--five-px));
+            -ms-transform: translateY(var(--five-px));
+            -o-transform: translateY(var(--five-px));
           }
         }
         &:nth-child(3) {
           background-color: var(--green);
-          box-shadow: 0 5px var(--green-dark);
+          box-shadow: 0 var(--five-px) var(--green-dark);
 
           &:hover {
-            border: 2px var(--green-dark) solid;
+            border: var(--two-px) var(--green-dark) solid;
             box-shadow: none;
-            transform: translateY(5px);
-            -webkit-transform: translateY(5px);
-            -moz-transform: translateY(5px);
-            -ms-transform: translateY(5px);
-            -o-transform: translateY(5px);
+            transform: translateY(var(--five-px));
+            -webkit-transform: translateY(var(--five-px));
+            -moz-transform: translateY(var(--five-px));
+            -ms-transform: translateY(var(--five-px));
+            -o-transform: translateY(var(--five-px));
           }
         }
         &:nth-child(4) {
           background-color: var(--blue);
-          box-shadow: 0 5px var(--blue-dark);
+          box-shadow: 0 var(--five-px) var(--blue-dark);
 
           &:hover {
-            border: 2px var(--blue-dark) solid;
+            border: var(--two-px) var(--blue-dark) solid;
             box-shadow: none;
-            transform: translateY(5px);
-            -webkit-transform: translateY(5px);
-            -moz-transform: translateY(5px);
-            -ms-transform: translateY(5px);
-            -o-transform: translateY(5px);
+            transform: translateY(var(--five-px));
+            -webkit-transform: translateY(var(--five-px));
+            -moz-transform: translateY(var(--five-px));
+            -ms-transform: translateY(var(--five-px));
+            -o-transform: translateY(var(--five-px));
           }
         }
       }
@@ -674,28 +716,23 @@ header {
 
   & .students {
     position: absolute;
-    height: 15rem;
+    height: var(--fifteen-rem);
     top: -7rem;
     right: 5rem;
   }
-  & .school {
-    position: absolute;
-    top: -19rem;
-    left: -6rem;
-    height: 20rem;
-  }
+
   & .river {
     position: absolute;
-    height: 23rem;
+    height: calc(var(--twenty-two-rem) + var(--one-rem));
     left: 70%;
-    bottom: 13rem;
+    top: 0;
     z-index: 9;
   }
   & .text {
     display: grid;
     position: relative;
-    gap: 2rem;
-    padding: 6rem 5rem 2rem 5rem;
+    gap: var(--two-rem);
+    padding: var(--six-rem) var(--five-rem) var(--two-rem) var(--five-rem);
     z-index: 10;
   }
   & main {
@@ -703,12 +740,12 @@ header {
     & .photos {
       z-index: inherit;
       display: flex;
-      gap: 2rem;
+      gap: var(--two-rem);
       position: relative;
       background-color: var(--black);
-      padding: 2rem;
-      height: 19rem;
-      width: 1226px;
+      padding: var(--two-rem);
+      height: calc(var(--twenty-rem) - var(--one-rem));
+      width: max(100vw, 1128px);
       overflow: hidden;
 
       & img {
@@ -716,14 +753,14 @@ header {
         position: absolute;
         left: 100%;
         object-fit: cover;
-        height: 15rem;
-        width: 15rem;
+        height: var(--fifteen-rem);
+        width: var(--fifteen-rem);
         filter: grayscale(1);
-        border-radius: 1rem;
-        -webkit-border-radius: 1rem;
-        -moz-border-radius: 1rem;
-        -ms-border-radius: 1rem;
-        -o-border-radius: 1rem;
+        border-radius: var(--one-rem);
+        -webkit-border-radius: var(--one-rem);
+        -moz-border-radius: var(--one-rem);
+        -ms-border-radius: var(--one-rem);
+        -o-border-radius: var(--one-rem);
         animation: scrollLeft var(--second) linear infinite;
         -webkit-animation: scrollLeft var(--second) linear infinite;
         -webkit-filter: grayscale(1);
@@ -732,11 +769,11 @@ header {
           transition: 50ms;
           filter: grayscale(0);
           -webkit-filter: grayscale(0);
-          transform: translateY(-0.5rem);
-          -webkit-transform: translateY(-0.5rem);
-          -moz-transform: translateY(-0.5rem);
-          -ms-transform: translateY(-0.5rem);
-          -o-transform: translateY(-0.5rem);
+          transform: translateY(clamp(-0.5rem, -0.65vw, -0.65vw));
+          -webkit-transform: translateY(clamp(-0.5rem, -0.65vw, -0.65vw));
+          -moz-transform: translateY(clamp(-0.5rem, -0.65vw, -0.65vw));
+          -ms-transform: translateY(clamp(-0.5rem, -0.65vw, -0.65vw));
+          -o-transform: translateY(clamp(-0.5rem, -0.65vw, -0.65vw));
           -webkit-transition: 50ms;
           -moz-transition: 50ms;
           -ms-transition: 50ms;
@@ -771,33 +808,32 @@ header {
 footer {
   background-color: var(--black);
   color: white;
-  padding: 6rem 5rem;
 
   & img {
-    height: 1rem;
+    height: var(--one-rem);
   }
   & a {
     color: white;
-    font-size: 14px;
+    font-size: var(--fourteen-px);
     position: relative;
   }
 
   & p {
     color: white;
-    font-size: 14px;
+    font-size: var(--fourteen-px);
   }
   & main {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
-    gap: 2rem;
+    grid-template-columns: repeat(auto-fit, minmax(var(--fifteen-rem), 1fr));
+    gap: var(--two-rem);
 
     & #contact {
       display: grid;
-      gap: 1rem;
+      gap: var(--one-rem);
 
       & .label {
         display: flex;
-        gap: 1em;
+        gap: var(--one-rem);
       }
     }
   }
@@ -809,10 +845,11 @@ footer {
   #tips,
   #benefits,
   footer {
-    padding: 6rem 2.5rem;
+    padding: var(--six-rem) var(--two-five-rem);
   }
   #gallery .text {
-    padding: 6rem 2.5rem 2rem 2.5rem;
+    padding: var(--six-rem) var(--two-five-rem) var(--two-rem)
+      var(--two-five-rem);
   }
 }
 @media only screen and (max-width: 780px) {
@@ -828,11 +865,5 @@ footer {
 @media only screen and (max-width: 540px) {
   #benefits .clouds:nth-child(1) {
     right: -10rem;
-  }
-}
-
-@media only screen and (max-width: 883px) {
-  header nav {
-    background-color: var(--blue);
   }
 }
